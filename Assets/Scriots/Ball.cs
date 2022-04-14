@@ -9,8 +9,16 @@ public class Ball : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
     }
+
     private void Start()
     {
+        ResetPosition();
+    }
+
+    public void ResetPosition(){
+        _rigidbody.position = Vector3.zero;
+        _rigidbody.velocity = Vector3.zero;
+
         AddStartingForce();
     }
 
@@ -22,4 +30,10 @@ public class Ball : MonoBehaviour
         Vector2 direction = new Vector2(x,y);
         _rigidbody.AddForce(direction * this.speed);
     }
+
+    public void AddForce(Vector2 force) {
+        _rigidbody.AddForce(force);
+    }
+
+    
 }
